@@ -472,10 +472,10 @@ static int handle_script (lua_State *L, char **argv) {
 ** any invalid argument). 'first' returns the first not-handled argument
 ** (either the script name or a bad argument in case of error).
 */
-static int collectargs (char **argv, int *first) {
+static int collectargs (int argc, char **argv, int *first) {
   int args = 0;
   int i;
-  for (i = 1; argv[i] != NULL; i++) {
+  for (i = 1; i < argc; i++) {
     *first = i;
     if (argv[i][0] != '-')  /* not an option? */
         return args;  /* stop handling options */
@@ -565,7 +565,7 @@ static int pmain (lua_State *L) {
   int argc = (int)lua_tointeger(L, 1);
   char **argv = (char **)lua_touserdata(L, 2);
   int script;
-  int args = collectargs(argv, &script);
+  int args = collectargs(argc, argv, &script);
   luaL_checkversion(L);  /* check that interpreter has correct version */
   if (argv[0] && argv[0][0]) progname = argv[0];
   if (args == has_error) {  /* bad arg? */
