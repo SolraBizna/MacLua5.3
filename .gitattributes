@@ -1,1 +1,3 @@
 * working-tree-encoding=mac
+/MakeFile text eol=cr
+*.r text eol=cr
