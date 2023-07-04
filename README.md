@@ -1,7 +1,7 @@
 What is this?
 =============
 
-This is a "proper" port of Lua 5.3 to the greatest, most modern operating system in the world: Classic MacOS!
+This is a "proper" port of Lua 5.3 to the greatest,but classic operating system in the world: Classic MacOS!
 
 Requirements
 ============
